@@ -42,6 +42,25 @@ SakuraLLM（`Sakura-GalTransl-7B`）是专为日译中轻小说与 Galgame 文�
 素材上明显优于通用模型。但有两点要注意：7B 量化版大约需要 6 GB 显存，小显存笔记本跑不
 动；它的许可协议是 CC-BY-NC-SA，因此**不得**用于出售翻译成果。
 
+## 不用 API key 就能跑
+
+两条命令，看清这个 skill 到底做了什么——不需要接口，也不花钱。都跑在 `examples/` 里那段
+原创样例上。
+
+```bash
+# 把样例切分成 chunk
+python scripts/chunk_source.py --input examples/sample-source.txt --out-dir chunks
+
+# 打印真正会发给模型的那个请求
+python scripts/translate_chunks.py \
+  --chunks-dir chunks --glossary examples/sample-glossary.json \
+  --style-samples references/style-samples.md --dry-run
+```
+
+第二条命令不调用任何接口。它会把 system prompt 打印出来——你锁定的术语表和风格规则就在
+开头——以及 user message 的前半段。这个 prompt 才是产品本体，其余都只是管道。
+`examples/README.md` 说明了这段样例专门用来暴露哪些坑。
+
 ## 快速开始
 
 ```bash
@@ -90,6 +109,7 @@ python scripts/export_book.py \
 | `references/eval.md` | 如何量化质量，而不是凭感觉 |
 | `references/glossary-base.md` | 题材基线：異世界 通用词汇，提前锁死 |
 | `references/style-samples.md` | 日中对照样例，以及选材的合法边界 |
+| `examples/` | 零密钥演示：原创样例、术语表，以及该检查什么 |
 
 ## 法律
 

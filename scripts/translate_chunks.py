@@ -98,9 +98,16 @@ def load_style_samples(text: str, source: Path) -> list[str]:
         elif line.strip():
             blocks.append([line])
 
-    samples = [joined for joined in ("\n".join(b).strip() for b in blocks) if joined]
+    # Only blocks that actually carry a JA/ZH pair are samples. The paragraph introducing the
+    # section is housekeeping for whoever maintains the file; sending it to the model wastes
+    # context and mixes instructions into the reference pairs.
+    samples = [
+        joined
+        for joined in ("\n".join(b).strip() for b in blocks)
+        if joined and "**JA:**" in joined
+    ]
     if not samples:
-        raise SystemExit(f"{source}: the '{SAMPLE_HEADING}' section is empty")
+        raise SystemExit(f"{source}: the '{SAMPLE_HEADING}' section has no '**JA:**' pairs")
     return samples
 
 

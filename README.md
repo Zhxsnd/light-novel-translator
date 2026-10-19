@@ -47,6 +47,26 @@ Galgame text, and beats a general model on this material. Two caveats: a quantis
 roughly 6 GB of VRAM, so it will not fit on a small laptop GPU, and its licence is
 CC-BY-NC-SA, which means it must not be used to sell translations.
 
+## Try it without an API key
+
+Two commands show you what the skill actually does — no endpoint, no spend. Both run against
+the original sample passage in `examples/`.
+
+```bash
+# split the sample passage into a chunk
+python scripts/chunk_source.py --input examples/sample-source.txt --out-dir chunks
+
+# print the exact request that would be sent to the model
+python scripts/translate_chunks.py \
+  --chunks-dir chunks --glossary examples/sample-glossary.json \
+  --style-samples references/style-samples.md --dry-run
+```
+
+The second command calls nothing. It prints the system prompt — your locked glossary and the
+style rules sit at the top of it — plus the head of the user message. That prompt is the whole
+product; everything else is plumbing. `examples/README.md` explains what the passage is
+designed to trip up.
+
 ## Quickstart
 
 ```bash
@@ -96,6 +116,7 @@ Interrupted partway through step 3? Run the same command again. Finished chunks 
 | `references/eval.md` | How to measure quality instead of guessing |
 | `references/glossary-base.md` | Genre baseline: recurring 異世界 vocabulary, locked up front |
 | `references/style-samples.md` | Japanese-Chinese reference pairs, and the rules for sourcing them |
+| `examples/` | Keyless demo: an original sample passage, its glossary, and what to check |
 
 ## Legal
 
