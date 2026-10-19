@@ -1,5 +1,7 @@
 # light-novel-translator
 
+**English** | [中文](README.zh-CN.md)
+
 An agent skill for translating Japanese light novels (ラノベ and web novels) into Chinese
 with a locked glossary, so character names, skill names and each speaker's own voice stay
 consistent from the first chapter to the last.
