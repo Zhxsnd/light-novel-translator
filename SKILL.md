@@ -1,6 +1,6 @@
 ---
 name: light-novel-translator
-description: Translate Japanese light novel raws into Chinese with a locked character/skill glossary. Use when asked to translate 生肉, なろう or カクヨム novels, or light novel EPUB/TXT.
+description: Translate Japanese light novel raws (生肉) into Chinese with a locked glossary, so character names, skill names and each speaker's voice stay consistent. Use for 轻小说 日译中, なろう / カクヨム / ラノベ web novels, or light novel EPUB and TXT.
 ---
 
 # Light Novel Translator
