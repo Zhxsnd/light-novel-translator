@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+
+# per-book working directories, not part of the skill
+chunks/
+out/
+manifest.json
+glossary.json
+book.*
