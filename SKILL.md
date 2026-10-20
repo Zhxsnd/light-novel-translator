@@ -97,10 +97,17 @@ python scripts/translate_chunks.py \
 
 ### 5. Verify
 
-- Check that every glossary term appears in the output exactly as specified.
-- Check for machine-translation tells: `さん` rendered as `桑`, flattened 敬語, a single
-  first-person pronoun for every speaker, dropped speech quirks.
-- Re-translate only the offending chunks with `--force`.
+Run the deterministic checks first, then read:
+
+```bash
+python scripts/verify_glossary.py --chunks-dir chunks --translated-dir out --glossary glossary.json
+```
+
+It scans every translated chunk for kana remnants of untranslated terms, honourific
+tells (`さん` rendered as `桑`), and first-person flattening across a chunk, and exits
+non-zero on violations. Fix what it reports — usually re-translate the offending chunks
+with `--force` — then spot-read three chunks for what no script can check: dropped
+speech quirks and broken register.
 
 ### 6. Measure — do not skip this on a long book
 
@@ -183,3 +190,7 @@ so it must not be used to sell translation.
 ## Do not use this skill for
 
 Subtitle, manga, or business document translation.
+
+`references/capability-boundaries.md` records what this skill covers, what it only
+partially covers, and what it deliberately excludes. Read it before committing a long
+book, and set the user's expectations from it rather than from optimism.

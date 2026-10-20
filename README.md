@@ -112,6 +112,9 @@ Interrupted partway through step 3? Run the same command again. Finished chunks 
 | `scripts/mine_glossary.py` | Proposes glossary entries from a parallel corpus |
 | `scripts/translate_chunks.py` | Runs the translation, with resume, retry and bounded context |
 | `scripts/export_book.py` | Builds EPUB 3 / bilingual / plain text |
+| `scripts/verify_glossary.py` | Deterministic checks after translation: kana remnants, honourific tells, pronoun flattening |
+| `tests/` | Standard-library unittest suite for the scripts |
+| `references/capability-boundaries.md` | What the skill covers today, partially covers, and deliberately excludes |
 | `references/data-sources.md` | Where to legally obtain Japanese-Chinese parallel corpora |
 | `references/eval.md` | How to measure quality instead of guessing |
 | `references/glossary-base.md` | Genre baseline: recurring 異世界 vocabulary, locked up front |

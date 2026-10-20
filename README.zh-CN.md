@@ -105,6 +105,9 @@ python scripts/export_book.py \
 | `scripts/mine_glossary.py` | 从平行语料中提出术语表候选 |
 | `scripts/translate_chunks.py` | 执行翻译，支持断点续跑、失败重试与有界上下文 |
 | `scripts/export_book.py` | 生成 EPUB 3 / 双语 / 纯文本 |
+| `scripts/verify_glossary.py` | 翻译后的确定性检查：假名残留、敬称误译、人称塌缩 |
+| `tests/` | 脚本的标准库 unittest 测试 |
+| `references/capability-boundaries.md` | 这个 skill 今天覆盖什么、部分覆盖什么、刻意不做什么 |
 | `references/data-sources.md` | 合法获取日中平行语料的渠道 |
 | `references/eval.md` | 如何量化质量，而不是凭感觉 |
 | `references/glossary-base.md` | 题材基线：異世界 通用词汇，提前锁死 |
