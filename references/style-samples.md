@@ -17,6 +17,12 @@ derivative works, and committing them to a public repository redistributes infri
 content. It is also not subtle: translation groups file DMCA notices and the host act on
 them.
 
+The same rule covers official or licensed excerpts, even ones the user pastes into the
+session. An excerpt is calibration material: read it in-session, adopt its decisions
+(names, format, register), then discard it. What may be committed is only the derived
+decisions — a glossary entry, a style rule — never the excerpt itself, here or anywhere
+else in the repository.
+
 Acceptable sources, in order of preference:
 
 1. **Your own past translations.** The best sample you can get, and unambiguously yours.

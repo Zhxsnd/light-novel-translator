@@ -48,7 +48,16 @@ This pass extracts, it does not translate prose.
    `scripts/mine_glossary.py` first — it proposes renderings from co-occurrence with the
    published translation, which beats guessing from the Japanese alone. Its output is a
    candidate list, not a finished glossary.
-4. Write `glossary.json` as a flat source-to-target map:
+4. Calibrate against a published excerpt if one exists. Even a few pages of an official
+   or licensed Chinese edition of the same work — pasted into the session by the user —
+   settles every disputed decision in one move: contested name renderings, pet-name
+   policy (`カミやん`-type nicknames), currency and numerals (`円` → 圆 vs 日元), quote
+   marks, and register (punchline rhythm, how tsukkomi lands, how 関西弁 is voiced).
+   These beat guesses from the Japanese alone. Treat the excerpt as read-only in-session
+   reference: adopt the *decisions*, never the prose, and never save the excerpt into the
+   repository or `references/style-samples.md`. Commit only the derived decisions — a
+   term mapping or a format rule is a fact, translated text is not.
+5. Write `glossary.json` as a flat source-to-target map:
 
 ```json
 {
@@ -58,8 +67,10 @@ This pass extracts, it does not translate prose.
 }
 ```
 
-5. Stop and show the glossary to the user. Do not start translating until they confirm
-   or correct it. Flag ambiguous names instead of guessing them.
+6. Stop and show the glossary to the user. Do not start translating until they confirm
+   or correct it. Flag ambiguous names instead of guessing them. Lock the global format
+   choices in the same pass — quote marks, currency, numeral style — so they are decided
+   once per book, not re-decided per chunk.
 
 ### 3. Chunk
 
@@ -172,6 +183,15 @@ Match the register in `references/style-samples.md` whenever that file has conte
 - Ruby (ルビ) glosses are authorial intent. Keep them only when they carry meaning.
 - Onomatopoeia and interjections translate by feeling, not word for word.
 - Reproduce paragraph and line breaks exactly as in the source.
+- Keep standalone punchlines punchy. A one-line 「不幸だ。」 stays a one-line 不幸啊。 —
+  never merge it into surrounding prose or pad it out.
+- Tsukkomi and banter land in colloquial Chinese — 俗语, idiom, spoken rhythm — never in
+  written register. 「打肿脸充胖子」 beats 「自我欺骗」 every time.
+- Dialect (関西弁, エセ関西弁, 東北弁) is voiced through real spoken flavour: tone
+  particles and colloquial word choice. Flattening it into standard Mandarin erases the
+  character.
+- Global format choices (quote marks, currency, numerals) come from Step 2 and apply
+  everywhere; a translator never re-decides them mid-book.
 
 ## Configuration
 
